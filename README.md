@@ -1,4 +1,4 @@
-# WordPress Functionality Plugin Boilerplate #
+# Gestio - Issues #
 
 ### Contributors ###
 
