@@ -2,7 +2,7 @@
 /**
  * Get the blogs ID's
  */
-class Prefix_Get_Blog_IDs {
+class Gestio_Issues_Get_Blog_IDs {
     /**
      * Class Constructor
      */

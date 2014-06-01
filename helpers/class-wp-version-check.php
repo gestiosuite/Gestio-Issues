@@ -2,7 +2,7 @@
 /**
  * Check the version of WordPress
  */
-class Prefix_WP_Version_Check {
+class Gestio_Issues_WP_Version_Check {
     static $version;
     public static $name = 'This plugin';
     public static $slug = 'prefix-functionality';
@@ -37,7 +37,7 @@ class Prefix_WP_Version_Check {
        echo '<strong>' . esc_html__( self::$name . ' requires WordPress ' . self::$version . ' or higher!', self::$slug ) . '</strong>';
     } 
     /**
-     * Check current version against $prefix_version_check
+     * Check current version against $gestio_issues_version_check
      */
     public static function compatible_version() {
         if ( version_compare( $GLOBALS['wp_version'], self::$version, '<' ) ) {

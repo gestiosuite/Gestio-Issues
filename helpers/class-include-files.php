@@ -2,7 +2,7 @@
 /**
  * Include Files
  */
-class Prefix_Include_Files {
+class Gestio_Issues_Include_Files {
     private $parent_dir;
     private $included_dirs;
     private $included_files;

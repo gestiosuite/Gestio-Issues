@@ -1,5 +1,5 @@
 <?php
-class Prefix_Custom_Post_Type {
+class Gestio_Issues_Custom_Post_Type {
     protected $post_type_name;
     protected $post_type_labels;
     protected $post_type_args;
