@@ -17,15 +17,22 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
-class Gestio_Issues_Init {
+// Required Files
+foreach( glob( plugin_dir_path( __FILE__ ) . 'helpers/*.php' ) as $files ){
+    require_once( $files );
+}
+/**
+ * Class to initiate the plugin
+ *
+ * @since  1.0.0
+ */
+class Gestio_Issues_Init extends Gestio_Issues_Singleton{
     /**
      * Class Constructor
+     *
+     * @since  1.0.0
      */
-    public function __construct() {
-        // Required Files
-        foreach( glob( plugin_dir_path( __FILE__ ) . 'helpers/*.php' ) as $files ){
-            require_once( $files );
-        }
+    protected function __construct() {
         // Register Activation and Deactivation Hook
         register_activation_hook( __FILE__, array( 'Gestio_Issues_Activate', 'activate' ) );
         register_deactivation_hook( __FILE__, array( 'Gestio_Issues_Deactivate', 'deactivate' ) );
@@ -35,11 +42,24 @@ class Gestio_Issues_Init {
         // Load Admin Files
         if( is_admin() ) {
             require_once( plugin_dir_path( __FILE__ ) . 'admin/class-admin-init.php' );
-            $admin_init = new Gestio_Issues_Admin_Init( PREFIX_SLUG, PREFIX_VERSION );
+            Gestio_Issues_Admin_Init::get_instance();
         }
         // Load Public Files
         require_once( plugin_dir_path( __FILE__ ) . 'public/class-public-init.php' );
-        $public_init = new Gestio_Issues_Public_Init( PREFIX_SLUG, PREFIX_VERSION );
+        Gestio_Issues_Public_Init::get_instance();
     }
 }
-$gestio_issues_init = new Gestio_Issues_Init();
+Gestio_Issues_Init::get_instance();
+
+/*function test_class( $class, $method = '__construct' ){
+    $reflector = new ReflectionClass( $class );
+    echo $class . ' class is beging loaded from ';
+    echo '<strong>' . $reflector->getFileName() . '</strong> on line:';
+    echo $reflector->getStartLine() . '</br>';
+    if( method_exists( $class , $method ) ){
+        echo $class .'::' . $method . ' exists';
+    } else {
+        echo $class .'::' . $method . ' does not exist';
+    }
+}
+test_class( 'Gestio_Issues_Admin_Styles' );*/

@@ -1,10 +1,17 @@
 <?php
+/**
+ * Creat Custom Post Types
+ *
+ * @since  1.0.0
+ */
 class Gestio_Issues_Custom_Post_Type {
     protected $post_type_name;
     protected $post_type_labels;
     protected $post_type_args;
     /**
      * Class Constructor
+     *
+     * @since  1.0.0
      */
     public function __construct( $name, $labels = array(), $args = array() ) {
         $this->post_type_name   = strtolower( str_replace( ' ', '_', $name ) );
@@ -18,6 +25,8 @@ class Gestio_Issues_Custom_Post_Type {
     }
     /**
      * Flush rerwite rules on plugin activation
+     *
+     * @since  1.0.0
      */
     public static function flush_rewrite_rules() {
         flush_rewrite_rules( false );
@@ -25,6 +34,8 @@ class Gestio_Issues_Custom_Post_Type {
     /**
      * The post type labels. User defined labels override the default
      * @return array The modified array of post type labels
+     *
+     * @since  1.0.0
      */
     private function post_type_labels() {
         $singular = ucwords( str_replace( '_', ' ', $this->post_type_name ) );
@@ -51,6 +62,8 @@ class Gestio_Issues_Custom_Post_Type {
     /**
      * The post type arguments. User defined arguments override the default
      * @return array The modified array of post type arguments
+     *
+     * @since  1.0.0
      */
     private function post_type_args() {
         $labels   = $this->post_type_labels();
@@ -97,15 +110,19 @@ class Gestio_Issues_Custom_Post_Type {
     }
     /**
      * Register Post Type
+     *
+     * @since  1.0.0
      */
     public function register_post_type() {
         register_post_type( $this->post_type_name, $this->post_type_args() );
     }
     /**
      * The taxonomy labels. User defined labels override the default
+     * 
      * @param  string $taxonomy_name   The taxonomy name
      * @param  array  $taxonomy_labels array of taxomony labels
      * @return array  The modified array of taxomony labels
+     * @since  1.0.0
      */
     private function taxonomy_labels(  $taxonomy_name, $taxonomy_labels = array() ) {
         $singular = ucwords( str_replace( '_', ' ', $taxonomy_name ) );
@@ -135,10 +152,12 @@ class Gestio_Issues_Custom_Post_Type {
     }
     /**
      * The taxonomy arguments. User defined arguments override the default
+     * 
      * @param  string $taxonomy_name   The taxonomy name
      * @param  array  $taxonomy_labels array of taxomony labels
      * @param  array  $taxonomy_args   array of taxomony arguments
      * @return array  The modified array of taxomony arguments
+     * @since  1.0.0
      */
     private function taxanomy_args( $taxonomy_name, $taxonomy_labels = array(), $taxonomy_args = array() ) {
         $defaults = array( 
@@ -162,9 +181,11 @@ class Gestio_Issues_Custom_Post_Type {
     }
     /**
      * Register taxonomies
+     * 
      * @param  string $name   The taxonomy name
      * @param  array  $args   User defined arguments
      * @param  array  $labels User defined labels
+     * @since  1.0.0
      */
     public function register_taxonomy( $name, $args = array(), $labels = array() ) {
          if( ! empty( $name ) ) {
@@ -183,9 +204,11 @@ class Gestio_Issues_Custom_Post_Type {
     }
     /**
      * Pluralize the post type or taxonomy name
+     * 
      * @param  string $word The name of the post type or taxonomy
      * @return string         The pluralized verion of the post type or taxonomy name
      * @see  https://github.com/whiteoctober/RestBundle/blob/master/Pluralization/Pluralization.php
+     * @since  1.0.0
      */
     public static function pluralize( $word ) {
        $plurals = array(

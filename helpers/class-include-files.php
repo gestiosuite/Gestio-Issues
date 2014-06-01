@@ -1,6 +1,8 @@
 <?php
 /**
  * Include Files
+ *
+ * @since  1.0.0
  */
 class Gestio_Issues_Include_Files {
     private $parent_dir;
@@ -10,8 +12,10 @@ class Gestio_Issues_Include_Files {
     private $excluded_files;
     /**
      * Class Constructor
+     * 
      * @param string $dir  the directory to scan
      * @param array  $args the user defined arguments
+     * @since  1.0.0
      */
     public function __construct( $dir, $args = array() ) {
         $defaults = array(
@@ -32,7 +36,9 @@ class Gestio_Issues_Include_Files {
     }
     /**
      * Exlude files for the include list
+     * 
      * @return array the excluded files
+     * @since  1.0.0
      */
     private function exclude_files() {
         foreach( $this->excluded_files as $excluded_file ) {
@@ -41,6 +47,8 @@ class Gestio_Issues_Include_Files {
     }
     /**
      * Include the files
+     *
+     * @since  1.0.0
      */
     private function include_files(){
         foreach( $this->included_dirs as $included_dir ){

@@ -1,25 +1,24 @@
 <?php
 /**
  * Load the Admin scripts
+ *
+ * @since  1.0.0
  */
-class Gestio_Issues_Admin_Scripts {
+class Gestio_Issues_Admin_Scripts extends Gestio_Issues_Singleton {
     /**
      * Class Constructor
      *
-     * @param string $gestio_issues_slug The plugin slug
-     * @param string $gestio_issues_versionThe plugin version 
+     * @since  1.0.0
      */
-    public function __construct( $gestio_issues_slug, $gestio_issues_version) {
+    protected function __construct() {
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
-        $this->plugin_slug = $gestio_issues_slug;
-        $this->version = $gestio_issues_version;
     }
     /**
-     * Scripts for the Functionlity Settings page
+     * Scripts for the Admin
+     *
+     * @since  1.0.0
      */
-    public function enqueue_styles( $hook ) {
-        if( $hook == 'tools_page_' . $this->plugin_slug ) {
-            wp_enqueue_script( $this->plugin_slug, plugins_url( 'assets/js/admin.js', dirname( __FILE__ ) ), array( 'jquery' ), $this->version, true );
-        }
+    public function enqueue_styles() {
+        wp_enqueue_script( GESTIO_ISSUES_SLUG, plugins_url( 'assets/js/admin.js', dirname( dirname( __FILE__ ) ) ), array( 'jquery' ), GESTIO_ISSUES_VERSION, true );
     }
 }
