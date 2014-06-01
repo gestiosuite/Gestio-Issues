@@ -1,21 +1,25 @@
 <?php
 /**
  * Load the Text Domain for localization
+ *
+ * @since  1.0.0
  */
-class Gestio_Issues_Load_Text_Domain {
+class Gestio_Issues_Load_Text_Domain extends Gestio_Issues_Singleton {
     /**
      * Class Constructor
      *
-     * @param string $gestio_issues_slug The plugin slug
+     * @since  1.0.0
      */
-    public function __construct() {
+    protected function __construct() {
         // Load plugin text domain
         add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
     }
     /**
      * Load the plugin text domain for translation
+     *
+     * @since  1.0.0
      */
     public function load_plugin_textdomain() {
-        load_plugin_textdomain( PREFIX_SLUG , false, plugin_dir_path( dirname( dirname( dirname( __FILE__ ) ) ) ) . 'languages' );
+        load_plugin_textdomain( GESTIO_ISSUES_SLUG , false, plugin_dir_path( dirname( dirname( dirname( __FILE__ ) ) ) ) . 'languages' );
     }
 }

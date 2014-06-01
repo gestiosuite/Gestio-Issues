@@ -1,17 +1,23 @@
 <?php
 /**
  * Run on Deactivation
+ *
+ * @since  1.0.0
  */
 class Gestio_Issues_Deactivate {
     /**
      * Class Constructor
+     *
+     * @since  1.0.0
      */
     public function __construct() {
     }
     /**
      * Fired when the plugin is deactivated
      *
-     * @param boolean $network_wide True if WPMU superadmin uses "Network Deactivate" action, false if WPMU is disabled or plugin is deactivated on an individual blog.
+     * @param boolean $network_wide True if WPMU superadmin uses "Network Deactivate" action, 
+     * false if WPMU is disabled or plugin is deactivated on an individual blog.
+     * @since  1.0.0
      */
     public static function deactivate( $network_wide ) {
         if ( function_exists( 'is_multisite' ) && is_multisite() ) {
@@ -32,12 +38,16 @@ class Gestio_Issues_Deactivate {
     }
     /**
      * Fired for each blog when the plugin is deactivated
+     *
+     * @since  1.0.0
      */
     private static function single_deactivate() {
         self::flush_rewrite_rules();
     }
     /**
      * Flush rewrite rules for new Custom Post Types
+     *
+     * @since  1.0.0
      */
     public static function flush_rewrite_rules() {
         flush_rewrite_rules( false );

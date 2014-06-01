@@ -1,6 +1,8 @@
 <?php
 /**
  * Run on activation
+ *
+ * @since  1.0.0
  */
 class Gestio_Issues_Activate {
     /**
@@ -13,7 +15,9 @@ class Gestio_Issues_Activate {
     /**
      * Fired when the plugin is activated.
      *
-     * @param boolean $network_wide True if WPMU superadmin uses "Network Deactivate" action, false if WPMU is disabled or plugin is deactivated on an individual blog.
+     * @param boolean $network_wide True if WPMU superadmin uses "Network Deactivate" action,
+     * false if WPMU is disabled or plugin is deactivated on an individual blog.
+     * @since  1.0.0
      */
     public static function activate( $network_wide ) {
         if ( function_exists( 'is_multisite' ) && is_multisite() ) {
@@ -36,6 +40,7 @@ class Gestio_Issues_Activate {
      * Fired when a new site is activated with a WPMU environment
      *
      * @param int $blog_id ID of the new blog
+     * @since  1.0.0
      */
     public function activate_new_site( $blog_id ) {
         if ( 1 !== did_action( 'wpmu_new_blog' ) ) {
@@ -47,6 +52,8 @@ class Gestio_Issues_Activate {
     }
     /**
      * Fired for each blog when the plugin is activated
+     *
+     * @since  1.0.0
      */
     private static function single_activate() {
         Gestio_Issues_WP_Version_Check::activation_check('3.7');

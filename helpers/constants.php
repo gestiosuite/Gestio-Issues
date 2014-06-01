@@ -1,4 +1,4 @@
 <?php
-define( 'PREFIX_VERSION', '1.0.0', true);
-define( 'PREFIX_DB_VERSION', '1.0.0', true);
-define( 'PREFIX_SLUG', 'tcl_', true);
+define( 'GESTIO_ISSUES_VERSION', '1.0.0', true);
+define( 'GESTIO_ISSUES_DB_VERSION', '1.0.0', true);
+define( 'GESTIO_ISSUES_SLUG', 'gestio-issues', true);
