@@ -63,3 +63,8 @@ Gestio_Issues_Init::get_instance();
     }
 }
 test_class( 'Gestio_Issues_Admin_Styles' );*/
+
+add_action('activated_plugin','save_error');
+function save_error(){
+    file_put_contents(ABSPATH. 'wp-content/error_activation.html', ob_get_contents());
+}

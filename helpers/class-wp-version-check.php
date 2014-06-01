@@ -6,8 +6,6 @@
  */
 class Gestio_Issues_WP_Version_Check {
     static $version;
-    public static $name = 'This plugin';
-    public static $slug = 'prefix-functionality';
     /**
      * The primary sanity check, automatically disable the plugin on activation if it doesn't meet minimum requirements
      *
@@ -17,7 +15,7 @@ class Gestio_Issues_WP_Version_Check {
         self::$version = $version;
         if ( ! self::compatible_version() ) {
             deactivate_plugins( plugin_basename( __FILE__ ) );
-            wp_die( __( self::$name . ' requires WordPress ' . self::$version . ' or higher!', self::$slug ) );
+            wp_die( __( GESTIO_ISSUES_PLUGIN_NAME . ' requires WordPress ' . self::$version . ' or higher!', GESTIO_ISSUES_SLUG ) );
         } 
     }
     /**
@@ -29,7 +27,7 @@ class Gestio_Issues_WP_Version_Check {
         if ( ! self::compatible_version() ) {
             if ( is_plugin_active( plugin_basename( __FILE__ ) ) ) {
                 deactivate_plugins( plugin_basename( __FILE__ ) );
-                add_action( 'admin_notices', array( $this, self::$slug ) );
+                add_action( 'admin_notices', array( $this, GESTIO_ISSUES_SLUG ) );
                 if ( isset( $_GET['activate'] ) ) {
                     unset( $_GET['activate'] );
                 }
@@ -42,10 +40,10 @@ class Gestio_Issues_WP_Version_Check {
      * @since  1.0.0
      */
     public function disabled_notice() {
-       echo '<strong>' . esc_html__( self::$name . ' requires WordPress ' . self::$version . ' or higher!', self::$slug ) . '</strong>';
+       echo '<strong>' . esc_html__( GESTIO_ISSUES_PLUGIN_NAME . ' requires WordPress ' . self::$version . ' or higher!', GESTIO_ISSUES_SLUG ) . '</strong>';
     } 
     /**
-     * Check current version against $gestio_issues_version_check
+     * Check current version against $prefix_version_check
      *
      * @since  1.0.0
      */
