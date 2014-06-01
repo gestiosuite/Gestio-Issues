@@ -17,8 +17,8 @@ class Gestio_Issues_Custom_Post_Type {
         $this->post_type_name   = strtolower( str_replace( ' ', '_', $name ) );
         $this->post_type_labels = $labels;
         $this->post_type_args   = $args;
+        // If plugin is activated
         if( ! post_type_exists( $this->post_type_name ) ) {
-            // If is on plugin activation
             register_activation_hook( __FILE__, 'flush_rewrite_rules' );
             add_action( 'init', array( $this, 'register_post_type' ) );
         }
