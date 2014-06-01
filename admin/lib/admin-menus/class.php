@@ -2,16 +2,16 @@
 /**
  * Create the Admin menu
  */
-class Prefix_Admin_Menus {
+class Gestio_Issues_Admin_Menus {
     /**
      * Class Constructor
      *
-     * @param string $prefix_slug The plugin slug
-     * @param string $prefix_versionThe plugin version 
+     * @param string $gestio_issues_slug The plugin slug
+     * @param string $gestio_issues_versionThe plugin version 
      */
-    public function __construct($prefix_slug, $prefix_version) {
-        $this->plugin_slug = $prefix_slug;
-        $this->version = $prefix_version;
+    public function __construct($gestio_issues_slug, $gestio_issues_version) {
+        $this->plugin_slug = $gestio_issues_slug;
+        $this->version = $gestio_issues_version;
         add_action( 'admin_menu', array( $this, 'add_FT_admin_menu' ) );
     }
     /**

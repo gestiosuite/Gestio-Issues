@@ -2,7 +2,7 @@
 /**
  * Run on Deactivation
  */
-class Prefix_Deactivate {
+class Gestio_Issues_Deactivate {
     /**
      * Class Constructor
      */
@@ -17,7 +17,7 @@ class Prefix_Deactivate {
         if ( function_exists( 'is_multisite' ) && is_multisite() ) {
             if ( $network_wide ) {
                 // Get all blog ids
-                $blog_ids = Prefix_Get_Blog_IDs::get_blog_ids();
+                $blog_ids = Gestio_Issues_Get_Blog_IDs::get_blog_ids();
                 foreach ( $blog_ids as $blog_id ) {
                     switch_to_blog( $blog_id );
                     self::single_deactivate();

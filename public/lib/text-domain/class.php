@@ -2,11 +2,11 @@
 /**
  * Load the Text Domain for localization
  */
-class Prefix_Load_Text_Domain {
+class Gestio_Issues_Load_Text_Domain {
     /**
      * Class Constructor
      *
-     * @param string $prefix_slug The plugin slug
+     * @param string $gestio_issues_slug The plugin slug
      */
     public function __construct() {
         // Load plugin text domain

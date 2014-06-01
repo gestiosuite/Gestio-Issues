@@ -1,10 +1,10 @@
 <?php
 add_filter( 'cmb_meta_boxes', 'cmb_config' );
 function cmb_config( array $meta_boxes ) {
-    global $prefix_slug;
+    global $gestio_issues_slug;
         $meta_boxes['column_left'] = array(
             'id'         => 'column_left',
-            'title'      => __( 'Left Column', $prefix_slug ),
+            'title'      => __( 'Left Column', $gestio_issues_slug ),
             'pages'      => array( 'page', ), // Post type
             'context'    => 'normal',
             'priority'   => 'high',
@@ -12,7 +12,7 @@ function cmb_config( array $meta_boxes ) {
             'fields'     => array(
                 array(
                     'name'    => 'Left Column',
-                    'id'      => $prefix_slug . 'left-column',
+                    'id'      => $gestio_issues_slug . 'left-column',
                     'type'    => 'wysiwyg',
                     'options' => array(
                         'wpautop'       => true,

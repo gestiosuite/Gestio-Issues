@@ -2,7 +2,7 @@
 /**
  * Run on activation
  */
-class Prefix_Activate {
+class Gestio_Issues_Activate {
     /**
      * Class Constructor
      */
@@ -19,7 +19,7 @@ class Prefix_Activate {
         if ( function_exists( 'is_multisite' ) && is_multisite() ) {
             if ( $network_wide  ) {
                 // Get all blog ids
-                $blog_ids = Prefix_Get_Blog_IDs::get_blog_ids();
+                $blog_ids = Gestio_Issues_Get_Blog_IDs::get_blog_ids();
                 foreach ( $blog_ids as $blog_id ) {
                     switch_to_blog( $blog_id );
                     self::single_activate();
@@ -49,6 +49,6 @@ class Prefix_Activate {
      * Fired for each blog when the plugin is activated
      */
     private static function single_activate() {
-        Prefix_WP_Version_Check::activation_check('3.7');
+        Gestio_Issues_WP_Version_Check::activation_check('3.7');
     }
 }

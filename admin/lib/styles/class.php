@@ -2,17 +2,17 @@
 /**
  * Load the Admin Styles
  */
-class Prefix_Admin_Styles {
+class Gestio_Issues_Admin_Styles {
     /**
      * Class Constructor
      *
-     * @param string $prefix_slug The plugin slug
-     * @param string $prefix_versionThe plugin version 
+     * @param string $gestio_issues_slug The plugin slug
+     * @param string $gestio_issues_versionThe plugin version 
      */
-    public function __construct( $prefix_slug, $prefix_version) {
+    public function __construct( $gestio_issues_slug, $gestio_issues_version) {
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
-        $this->plugin_slug = $prefix_slug;
-        $this->version = $prefix_version;
+        $this->plugin_slug = $gestio_issues_slug;
+        $this->version = $gestio_issues_version;
     }
     /**
      * Styles for the Functionlity Settings page
