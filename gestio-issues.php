@@ -42,11 +42,11 @@ class Gestio_Issues_Init extends Gestio_Issues_Singleton{
         // Load Admin Files
         if( is_admin() ) {
             require_once( plugin_dir_path( __FILE__ ) . 'admin/class-admin-init.php' );
-            Gestio_Issues_Admin_Init::get_instance();
+            $gestio_issues_admin_init = new Gestio_Issues_Admin_Init();
         }
         // Load Public Files
         require_once( plugin_dir_path( __FILE__ ) . 'public/class-public-init.php' );
-        Gestio_Issues_Public_Init::get_instance();
+        $gestio_issues_public_init = new Gestio_Issues_Public_Init();
     }
 }
 Gestio_Issues_Init::get_instance();
@@ -64,7 +64,7 @@ Gestio_Issues_Init::get_instance();
 }
 test_class( 'Gestio_Issues_Admin_Styles' );*/
 
-add_action('activated_plugin','save_error');
+/*add_action('activated_plugin','save_error');
 function save_error(){
     file_put_contents(ABSPATH. 'wp-content/error_activation.html', ob_get_contents());
-}
+}*/

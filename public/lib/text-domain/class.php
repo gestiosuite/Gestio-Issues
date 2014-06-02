@@ -4,13 +4,13 @@
  *
  * @since  1.0.0
  */
-class Gestio_Issues_Load_Text_Domain extends Gestio_Issues_Singleton {
+class Gestio_Issues_Load_Text_Domain {
     /**
      * Class Constructor
      *
      * @since  1.0.0
      */
-    protected function __construct() {
+    public function __construct() {
         // Load plugin text domain
         add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
     }
