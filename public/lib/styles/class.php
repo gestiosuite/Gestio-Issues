@@ -4,13 +4,13 @@
  *
  * @since  1.0.0
  */
-class Gestio_Issues_Public_Styles extends Gestio_Issues_Singleton {
+class Gestio_Issues_Public_Styles {
     /**
      * Class Constructor
      *
      * @since  1.0.0 
      */
-    protected function __construct() {
+    public function __construct() {
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
     }
     /**
