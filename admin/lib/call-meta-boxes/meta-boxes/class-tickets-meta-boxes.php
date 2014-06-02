@@ -41,7 +41,7 @@ class Gestio_Issues_Tickets_Meta_Boxes {
      */
     public function display_tickets_meta_boxes( $post ) {
         $ticket_type_value = get_post_meta( $post->ID, 'gestio_issues_ticket_type', true );
-        echo '<div class="meta-fields">
+        echo '<div class="meta-fields right" style="background: none;">
                 <p class="label">
                     <span class="radio-label">'. __( 'Ticket Type', GESTIO_ISSUES_SLUG ) .'</span>
                 </p>
@@ -62,37 +62,34 @@ class Gestio_Issues_Tickets_Meta_Boxes {
             </div>';
         echo '<div class="meta-fields">
                 <p class="label">
-                    <label for="post_title">'. __( 'Company', GESTIO_ISSUES_SLUG ) .'</label></br>'. __( 'The Company\'s Name', GESTIO_ISSUES_SLUG) .'
+                    <label for="post_title">'. __( 'Company\'s Name', GESTIO_ISSUES_SLUG ) .'</label></br>
+                    <input type="text" name="post_title" id="post_title" value="'.  esc_attr( get_post_meta( $post->ID, 'post_title', true ) ) .'" />
                 </p>
-                   <input type="text" name="post_title" id="post_title" value="'.  esc_attr( get_post_meta( $post->ID, 'post_title', true ) ) .'" />
-            </div>';
-        echo '<div class="meta-fields">
                 <p class="label">
-                    <label for="gestio_issues_contact_name">'. __( 'Contact', GESTIO_ISSUES_SLUG ) .'</label></br>'. __( 'The Contact\'s Name', GESTIO_ISSUES_SLUG) .'
+                    <label for="gestio_issues_contact_name">'. __( 'Contact\'s Name', GESTIO_ISSUES_SLUG ) .'</label></br>
+                    <input type="text" name="gestio_issues_contact_name" id="gestio_issues_contact_name" value="'. esc_attr( get_post_meta( $post->ID, 'gestio_issues_contact_name', true ) ) .'" />
                 </p>
-               <input type="text" name="gestio_issues_contact_name" id="gestio_issues_contact_name" value="'. esc_attr( get_post_meta( $post->ID, 'gestio_issues_contact_name', true ) ) .'" />
+               
             </div>';
          echo '<div class="meta-fields">
                 <p class="label">
-                    <label for="gestio_issues_contact_email">'. __( 'Email', GESTIO_ISSUES_SLUG ) .'</label></br>'. __( 'The Contact\'s Email Address', GESTIO_ISSUES_SLUG) .'
+                    <label for="gestio_issues_contact_email">'. __( 'Contact\'s Email Address', GESTIO_ISSUES_SLUG ) .'</label></br>
+                    <input type="text" name="gestio_issues_contact_email" id="gestio_issues_contact_email" value="'. esc_attr( get_post_meta( $post->ID, 'gestio_issues_contact_email', true ) ) .'" />
                 </p>
-                   <input type="text" name="gestio_issues_contact_email" id="gestio_issues_contact_email" value="'. esc_attr( get_post_meta( $post->ID, 'gestio_issues_contact_email', true ) ) .'" />
-            </div>';
+                <p class="label">
+                    <label for="gestio_issues_website_url">'. __( 'The Website\'s URL', GESTIO_ISSUES_SLUG ) .'</label></br>
+                    <input type="text" name="gestio_issues_website_url" id="gestio_issues_website_url" value="'. esc_attr( get_post_meta( $post->ID, 'gestio_issues_website_url', true ) ) .'" />
+                </p>
+            </div>';;
         echo '<div class="meta-fields">
                 <p class="label">
-                    <label for="gestio_issues_website_url">'. __( 'URL', GESTIO_ISSUES_SLUG ) .'</label></br>'. __( 'The Website\'s URL', GESTIO_ISSUES_SLUG) .'
+                    <label for="gestio_issues_short_description">'. __( 'The Short Description', GESTIO_ISSUES_SLUG ) .'</label></br>
                 </p>
-                   <input type="text" name="gestio_issues_website_url" id="gestio_issues_website_url" value="'. esc_attr( get_post_meta( $post->ID, 'gestio_issues_website_url', true ) ) .'" />
+                   <textarea name="gestio_issues_short_description" id="gestio_issues_short_description">'. esc_textarea( get_post_meta( $post->ID, 'gestio_issues_ticket_message', true ) ) .'</textarea>
             </div>';
-        echo '<div class="meta-fields">
+        echo '<div class="meta-fields message">
                 <p class="label">
-                    <label for="gestio_issues_short_description">'. __( 'Short Description', GESTIO_ISSUES_SLUG ) .'</label></br>'. __( 'A Short Description', GESTIO_ISSUES_SLUG) .'
-                </p>
-                   <input type="text" name="gestio_issues_short_description" id="gestio_issues_short_description" value="'. esc_attr( get_post_meta( $post->ID, 'gestio_issues_short_description', true ) ) .'" />
-            </div>';
-        echo '<div class="meta-fields">
-                <p class="label">
-                    <label for="gestio_issues_ticket_message">'. __( 'Message', GESTIO_ISSUES_SLUG ) .'</label></br>'. __( 'The Message', GESTIO_ISSUES_SLUG) .'
+                    <label for="gestio_issues_ticket_message">'. __( 'The Message', GESTIO_ISSUES_SLUG ) .'</label></br>
                 </p>
                    <textarea name="gestio_issues_ticket_message" id="gestio_issues_ticket_message">'. esc_textarea( get_post_meta( $post->ID, 'gestio_issues_ticket_message', true ) ) .'</textarea>
             </div>';
