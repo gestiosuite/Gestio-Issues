@@ -1,1 +1,110 @@
-/* The Admin CSS */
+#gestio_issues_tickets_fields {
+    border: none;
+}
+#gestio_issues_tickets_fields {
+    background: none;
+}
+#gestio_issues_tickets_fields .hndle,
+#gestio_issues_tickets_fields .handlediv {
+    display: none;
+}
+.edit-php .fixed .column-seitii-status {
+    width: 250px;
+}
+.ticket-status-indicator {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 100%;
+}
+.ticket-status-indicator.open {
+    background-color: #e59400;
+}
+.ticket-status-indicator.closed {
+    background-color: #ff0000;
+}
+#seitii-tickets_fields .inside{
+    padding: 0px;
+}
+.meta-fields:first-child {
+    border-top: none;
+}
+.meta-fields {
+    padding: 15px 10px;
+}
+.meta-fields:before,
+.meta-fields:after {
+    content: "";
+    display: table;
+} 
+.meta-fields:after {
+    clear: both;
+}
+.meta-fields {
+    zoom: 1;
+}
+.meta-fields p{
+    width: 50%;
+    float: left;
+}
+@media screen and (max-width: 1330px){
+    .meta-fields p{
+        width: 98%;
+        float: none;
+    }
+    .meta-fields p:first-child{
+        padding-bottom: 2em;
+    }
+}
+.meta-fields.message p,
+.meta-fields.right p {
+    width: 98%;
+    float: none;
+}
+.meta-fields .label{
+    margin: 0px;
+}
+.meta-fields .label .radio-label,
+.meta-fields .label label {
+    color: #333333;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0;
+    margin: 0px;
+    display: block;
+    vertical-align: text-bottom;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+.meta-fields .label label {
+    line-height: 0;
+}
+.meta-fields input[type = "text"],
+.meta-fields textarea,
+.meta-fields .fields-list {
+    margin-top: 1em;
+}
+.meta-fields input[type = "text"] {
+    max-width: 100%;
+    width: 380px;
+}
+.meta-fields textarea {
+    width: 100%;
+    height: 200px;
+}
+.meta-fields input[type = "radio"] {
+    margin-top: 2px;
+}
+.meta-fields .fields-list.horizontal {
+    overflow: hidden;
+}
+.meta-fields .fields-list.horizontal li {
+    float: left;
+    margin-right: 1em;
+}
+#gestio_issues_short_description {
+    height: 100px;
+}
+#titlewrap {
+    display: none;
+}
