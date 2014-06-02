@@ -43,6 +43,7 @@ class Gestio_Issues_Deactivate {
      */
     private static function single_deactivate() {
         self::flush_rewrite_rules();
+        $gestio_issues_delete_pages = new Gestio_Issues_Delete_Pages();
     }
     /**
      * Flush rewrite rules for new Custom Post Types
