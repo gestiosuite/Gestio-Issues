@@ -14,7 +14,7 @@ class Gestio_Issues_Custom_Post_Type {
      * @since  1.0.0
      */
     public function __construct( $name, $labels = array(), $args = array() ) {
-        $this->post_type_name   = strtolower( str_replace( ' ', '_', $name ) );
+        $this->post_type_name   = trim( strtolower( str_replace( ' ', '_', $name ) ) );
         $this->post_type_labels = $labels;
         $this->post_type_args   = $args;
         // If plugin is activated
@@ -38,7 +38,7 @@ class Gestio_Issues_Custom_Post_Type {
      * @since  1.0.0
      */
     private function post_type_labels() {
-        $singular = ucwords( str_replace( '_', ' ', $this->post_type_name ) );
+        $singular = str_replace( '_', ' ', ucwords( $this->post_type_name ) );
         $plural = self::pluralize( $singular );
         $defaults = array( 
             'name'                  => _x( $plural, 'post type general name' ),
@@ -125,7 +125,7 @@ class Gestio_Issues_Custom_Post_Type {
      * @since  1.0.0
      */
     private function taxonomy_labels(  $taxonomy_name, $taxonomy_labels = array() ) {
-        $singular = ucwords( str_replace( '_', ' ', $taxonomy_name ) );
+        $singular = str_replace( '_', ' ', ucwords( $taxonomy_name ) );
         $plural   = self::pluralize( $singular );
         $defaults = array(
             'name'                          => _x( $plural, 'taxonomy general name' ),
@@ -190,7 +190,7 @@ class Gestio_Issues_Custom_Post_Type {
     public function register_taxonomy( $name, $args = array(), $labels = array() ) {
          if( ! empty( $name ) ) {
             $post_type_name  = $this->post_type_name;
-            $taxonomy_name   = strtolower( str_replace( ' ', '_', $name ) );
+            $taxonomy_name   = trim( strtolower( str_replace( ' ', '_', $name ) ) );
             $taxonomy_labels = $labels;
             $taxonomy_args   = $args;
             if( ! taxonomy_exists( $taxonomy_name ) ) {

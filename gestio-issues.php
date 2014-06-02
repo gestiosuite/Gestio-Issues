@@ -17,34 +17,60 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
-// Required Files
-foreach( glob( plugin_dir_path( __FILE__ ) . 'helpers/*.php' ) as $files ){
-    require_once( $files );
-}
+
 /**
  * Class to initiate the plugin
  *
  * @since  1.0.0
  */
-class Gestio_Issues_Init extends Gestio_Issues_Singleton{
+class Gestio_Issues_Init {
+    private static $instance = null;
+    /**
+     * Creates or returns an instance of this class.
+     *
+     * @return  Foo A single instance of this class.
+     */
+    public static function get_instance() {
+        if ( null == self::$instance ) {
+            self::$instance = new self;
+        }
+        return self::$instance;
+    }
     /**
      * Class Constructor
      *
      * @since  1.0.0
      */
-    protected function __construct() {
-        // Register Activation and Deactivation Hook
+    private function __construct() {
+        $this->load_files();
         register_activation_hook( __FILE__, array( 'Gestio_Issues_Activate', 'activate' ) );
         register_deactivation_hook( __FILE__, array( 'Gestio_Issues_Deactivate', 'deactivate' ) );
-        // Custom Post Types
-        // $test = new Gestio_Issues_Custom_Post_Type('test');
-        // $test->register_taxonomy('Test Taxonomy');
-        // Load Admin Files
+        $this->admin_init();
+        $this->public_init();
+        $string = 'Gestio Issues Tickets';
+    }
+    public function load_files(){
+        foreach( glob( plugin_dir_path( __FILE__ ) . 'helpers/*.php' ) as $files ){
+            require_once( $files );
+        }
+    }
+    /**
+     * Admin init
+     *
+     * @since  1.0.0
+     */
+    public function admin_init(){
         if( is_admin() ) {
             require_once( plugin_dir_path( __FILE__ ) . 'admin/class-admin-init.php' );
             $gestio_issues_admin_init = new Gestio_Issues_Admin_Init();
         }
-        // Load Public Files
+    }
+    /**
+     * Public init
+     *
+     * @since  1.0.0
+     */
+    public function public_init(){
         require_once( plugin_dir_path( __FILE__ ) . 'public/class-public-init.php' );
         $gestio_issues_public_init = new Gestio_Issues_Public_Init();
     }
@@ -62,7 +88,7 @@ Gestio_Issues_Init::get_instance();
         echo $class .'::' . $method . ' does not exist';
     }
 }
-test_class( 'Gestio_Issues_Admin_Styles' );*/
+test_class( 'Gestio_Issues_Custom_Post_Type' );*/
 
 /*add_action('activated_plugin','save_error');
 function save_error(){
