@@ -57,5 +57,6 @@ class Gestio_Issues_Activate {
      */
     private static function single_activate() {
         Gestio_Issues_WP_Version_Check::activation_check('3.7');
+        $gestio_issues_create_pages = new Gestio_Issues_Create_Pages();
     }
 }
