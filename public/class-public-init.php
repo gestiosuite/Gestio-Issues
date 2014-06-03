@@ -16,6 +16,5 @@ class Gestio_Issues_Public_Init {
         $gestio_issues_public_scripts = new Gestio_Issues_Public_Scripts();
         $gestio_issues_public_styles = new Gestio_Issues_Public_Styles();
         $gestio_issues_post_types = new Gestio_Issues_Post_Types();
-        $gestio_issues_call_meta_boxes = new Gestio_Issues_Call_Meta_Boxes();
     }
 }

@@ -41,7 +41,7 @@ class Gestio_Issues_Status_Meta_Boxes {
      */
     public function display_status_meta_boxes( $post ) {
         $ticket_status_value = get_post_meta( $post->ID, 'gestio_issues_ticket_status', true );
-        echo '<div class="meta-fields">
+        echo '<div class="meta-fields right">
                 <p class="label">
                     <span class="radio-label">'. __( 'Ticket Status', GESTIO_ISSUES_SLUG ) .'</span>
                 </p>
