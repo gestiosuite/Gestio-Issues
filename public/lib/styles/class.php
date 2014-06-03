@@ -19,6 +19,6 @@ class Gestio_Issues_Public_Styles {
      * @since  1.0.0
      */
     public function enqueue_styles() {
-        wp_enqueue_style( $this->plugin_slug, plugins_url( 'assets/css/public.css', dirname( __FILE__ ) ), array(), $this->version );
+        wp_enqueue_style( GESTIO_ISSUES_SLUG, plugins_url( 'assets/css/public.css', dirname( __FILE__ ) ), array(), GESTIO_ISSUES_VERSION );
     }
 }

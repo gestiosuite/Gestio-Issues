@@ -13,6 +13,7 @@ class Gestio_Issues_Tickets_Meta_Boxes {
     public function __construct() {
         add_action('add_meta_boxes', array( $this, 'meta_boxes' ) );
         add_action( 'save_post', array( $this, 'save_post' ) );
+        
     }
     /**
      * Add the meta box
@@ -62,8 +63,8 @@ class Gestio_Issues_Tickets_Meta_Boxes {
             </div>';
         echo '<div class="meta-fields">
                 <p class="label">
-                    <label for="post_title">'. __( 'Company\'s Name', GESTIO_ISSUES_SLUG ) .'</label></br>
-                    <input type="text" name="post_title" id="post_title" value="'.  esc_attr( get_post_meta( $post->ID, 'post_title', true ) ) .'" />
+                    <label for="gestio_issues_company_name">'. __( 'Company\'s Name', GESTIO_ISSUES_SLUG ) .'</label></br>
+                    <input type="text" name="gestio_issues_company_name" id="gestio_issues_company_name" value="'.  esc_attr( get_post_meta( $post->ID, 'gestio_issues_company_name', true ) ) .'" />
                 </p>
                 <p class="label">
                     <label for="gestio_issues_contact_name">'. __( 'Contact\'s Name', GESTIO_ISSUES_SLUG ) .'</label></br>
@@ -123,8 +124,8 @@ class Gestio_Issues_Tickets_Meta_Boxes {
         if( isset( $_POST['gestio_issues_ticket_type'] ) ) {
             update_post_meta( $post_id, 'gestio_issues_ticket_type', $_POST['gestio_issues_ticket_type'] );
         }
-        if( isset( $_POST['post_title'] ) ) {
-            update_post_meta( $post_id, 'post_title', sanitize_text_field( $_POST['post_title'] ) );
+        if( isset( $_POST['gestio_issues_company_name'] ) ) {
+            update_post_meta( $post_id, 'gestio_issues_company_name', sanitize_text_field( $_POST['gestio_issues_company_name'] ) );
         }
         if( isset( $_POST['gestio_issues_contact_name'] ) ){
             update_post_meta( $post_id, 'gestio_issues_contact_name', sanitize_text_field( $_POST['gestio_issues_contact_name'] ) );
@@ -141,6 +142,5 @@ class Gestio_Issues_Tickets_Meta_Boxes {
         if( isset( $_POST['gestio_issues_ticket_message'] ) ) {
             update_post_meta( $post_id, 'gestio_issues_ticket_message', sanitize_text_field( $_POST['gestio_issues_ticket_message'] ) );
         }
-        
     }
 }
